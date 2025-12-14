@@ -1,0 +1,21 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="og" x1="80" y1="80" x2="1120" y2="550" gradientUnits="userSpaceOnUse">
+<stop stop-color="#2d21ed"/>
+<stop offset="0.4" stop-color="#36e08b"/>
+<stop offset="0.7" stop-color="#e0e036"/>
+<stop offset="1" stop-color="#e0368b"/>
+</linearGradient>
+</defs>
+<rect width="1200" height="630" rx="48" fill="#0b0b16"/>
+<rect x="36" y="36" width="1128" height="558" rx="44" fill="#111026"/>
+<rect x="84" y="78" width="1032" height="474" rx="40" fill="url(#og)" opacity="0.9"/>
+<text x="120" y="210" fill="white" font-size="64" font-family="Arial" font-weight="700">Neon Layer Studio</text>
+<text x="120" y="280" fill="#e0e036" font-size="32" font-family="Arial" font-weight="600">Дизайн, motion, продукт — готово к запуску</text>
+<circle cx="1040" cy="180" r="32" fill="#36e08b"/>
+<circle cx="980" cy="240" r="22" fill="#e0e036"/>
+<circle cx="1080" cy="260" r="18" fill="#e0368b"/>
+<path d="M180 420C260 340 420 340 500 420C580 500 760 500 880 420" stroke="white" stroke-opacity="0.7" stroke-width="12" stroke-linecap="round"/>
+</svg>
+
+

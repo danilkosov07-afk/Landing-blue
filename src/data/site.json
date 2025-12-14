@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "title": "Neon Layer Studio — Дизайн, продукт и медиа под запуск",
+    "description": "Премиальный лендинг студии: стратегия, дизайн, motion, развитие продукта. Адаптив, анимации, готово к продажам.",
+    "keywords": "дизайн студия, лендинг, motion, UI/UX, брендинг, разработка",
+    "ogImage": "/images/og-cover.svg"
+  },
+  "navigation": [
+    { "label": "Главная", "href": "#hero" },
+    { "label": "Преимущества", "href": "#features" },
+    { "label": "Функционал", "href": "#services" },
+    { "label": "Галерея", "href": "#gallery" },
+    { "label": "Контакты", "href": "#contact" }
+  ],
+  "hero": {
+    "title": "Создаем цифровые истории с характером",
+    "subtitle": "От стратегии и дизайна до motion и продакшена. Точные решения, которые поднимают метрики и эмоции клиентов.",
+    "ctaPrimary": "Запустить проект",
+    "ctaSecondary": "Получить презентацию",
+    "badge": "Агентство полного цикла",
+    "image": "/images/hero-figure.svg",
+    "decor": ["/images/decor-1.svg", "/images/decor-2.svg", "/images/decor-3.svg"],
+    "stats": [
+      { "label": "Запуски", "value": "120+" },
+      { "label": "Рост конверсии", "value": "x3.4" },
+      { "label": "Сроки", "value": "14 дней" }
+    ]
+  },
+  "features": [
+    {
+      "title": "Продуманная архитектура",
+      "text": "Глубокие CJM и сценарии, чтобы каждая точка касания вела к целевому действию.",
+      "icon": "/images/feature-1.svg",
+      "tag": "Strategy"
+    },
+    {
+      "title": "Брендинг с динамикой",
+      "text": "Айдентика, которая гибко живет в диджитале — 3D свет, градиенты, микроанимации.",
+      "icon": "/images/feature-2.svg",
+      "tag": "Brand"
+    },
+    {
+      "title": "UX, который продает",
+      "text": "Магнитные кнопки, плавные переходы, адаптивные паттерны. Оптимизировано под mobile-first.",
+      "icon": "/images/feature-3.svg",
+      "tag": "UX"
+    },
+    {
+      "title": "Техническая чистота",
+      "text": "Next.js, Tailwind, Framer Motion. Минификация, lazy-load, schema.org — готово к продакшну.",
+      "icon": "/images/feature-4.svg",
+      "tag": "Code"
+    }
+  ],
+  "services": [
+    {
+      "title": "Интерфейсы и продукты",
+      "text": "Дизайн систем, личные кабинеты, CRM, сложные формы. Быстрые прототипы и тесты.",
+      "icon": "/images/service-1.svg"
+    },
+    {
+      "title": "Motion & 3D",
+      "text": "Титры, hero-анимации, параллакс-слои, интерактивные иллюстрации под любые экраны.",
+      "icon": "/images/service-2.svg"
+    },
+    {
+      "title": "Медиа и контент",
+      "text": "Кейсовые ролики, sound design, сценарии для тизеров и рекламных связок.",
+      "icon": "/images/service-3.svg"
+    },
+    {
+      "title": "Growth & поддержка",
+      "text": "A/B эксперименты, новые блоки через админку, аналитика и развитие после запуска.",
+      "icon": "/images/service-4.svg"
+    }
+  ],
+  "gallery": {
+    "categories": ["Все", "UI", "Motion", "Brand", "3D"],
+    "items": [
+      {
+        "title": "Fintech Flow",
+        "description": "Потоки онбординга, realtime-дашборды, темные темы.",
+        "src": "/images/gallery-1.svg",
+        "category": "UI"
+      },
+      {
+        "title": "Pulse Motion",
+        "description": "Динамичные титры, анимация букв и адаптивные слои.",
+        "src": "/images/gallery-2.svg",
+        "category": "Motion"
+      },
+      {
+        "title": "Neon Identity",
+        "description": "Брендинг с глубиной цвета и 3D бликами.",
+        "src": "/images/gallery-3.svg",
+        "category": "Brand"
+      },
+      {
+        "title": "Product Shots",
+        "description": "Глянцевые ракурсы, мягкие тени, продающие детали.",
+        "src": "/images/gallery-4.svg",
+        "category": "3D"
+      },
+      {
+        "title": "UI System",
+        "description": "Карточки, формы, sticky меню, микроинтеракции.",
+        "src": "/images/gallery-5.svg",
+        "category": "UI"
+      },
+      {
+        "title": "Event Media",
+        "description": "Горизонтальные клипы, саунд-дизайн, лайв-графика.",
+        "src": "/images/gallery-6.svg",
+        "category": "Motion"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Расскажите о задаче",
+    "subtitle": "Ответим в течение рабочего часа и предложим два сценария запуска.",
+    "cta": "Отправить заявку",
+    "email": "hello@neonlayer.studio",
+    "phone": "+7 999 100-23-23",
+    "address": "Remote first · Worldwide",
+    "socials": [
+      { "label": "Telegram", "href": "https://t.me" },
+      { "label": "Behance", "href": "https://behance.net" },
+      { "label": "Dribbble", "href": "https://dribbble.com" }
+    ]
+  },
+  "footer": {
+    "text": "Neon Layer Studio — дизайн с измеримым результатом.",
+    "links": [
+      { "label": "Конфиденциальность", "href": "#" },
+      { "label": "Условия", "href": "#" },
+      { "label": "Поддержка", "href": "#" }
+    ]
+  }
+}
+

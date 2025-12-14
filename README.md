@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Лендинг Neon Layer Studio
 
-## Getting Started
+Стек: Next.js (App Router) + TailwindCSS + Framer Motion. Все тексты, карточки и галерея приходят из `src/data/site.json`. Изображения лежат в `public/images`.
 
-First, run the development server:
-
+### Запуск
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# продакшен
+npm run build
+npm run start
 ```
+Открыть: http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Навигация и анимации
+- Sticky меню, плавный scroll по якорям.
+- Реактивный курсор и магнитные кнопки с мягким скейлом.
+- Hero: параллакс слоёв, плавный fade/slide, анимация заголовка по буквам.
+- Карточки преимуществ и функционала: hover-анимация (scale, легкий 3D), тени и glow.
+- Галерея: lazy-load изображений, плавное появление при скролле, фильтры по категориям.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Функциональность блоков
+- Hero: две CTA — «Запустить проект» ведёт к форме контактов, «Получить презентацию» — к блоку функционала.
+- Преимущества / Функционал: карточки читаются из JSON; можно добавлять новые через админку (см. ниже).
+- Галерея: фильтрация по категориям из JSON, подписи и описания; изображения подгружаются лениво.
+- Контактная форма: отправляет POST на `/api/contact` (mock). Валидация на обязательные поля, статусные подписи.
+- Футер: ссылки на политики/поддержку.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Админ-панель
+- По умолчанию скрыта. Появляется, если открыть страницу с параметром `?admin=1` или `?admin=true`.
+- Позволяет добавлять:
+  - карточки в секцию «Преимущества» (type=feature);
+  - карточки в галерею (type=gallery) с выбором категории.
+- Новый элемент сразу монтируется в состояние и отображается на странице (локально, без бэкенда).
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### SEO и оптимизация
+- Meta/OG теги берутся из `site.json`.
+- Microdata schema.org на основных блоках (Hero как CreativeWork, списки как ItemList, контакт как ContactPoint/ContactPage).
+- Lazy-load изображений, минификация из коробки Next.js.

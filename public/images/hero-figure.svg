@@ -1,0 +1,48 @@
+<svg width="880" height="720" viewBox="0 0 880 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="g1" x1="120" y1="50" x2="760" y2="650" gradientUnits="userSpaceOnUse">
+<stop stop-color="#36e08b" stop-opacity="0.8"/>
+<stop offset="0.5" stop-color="#2d21ed"/>
+<stop offset="1" stop-color="#e0368b" stop-opacity="0.9"/>
+</linearGradient>
+<linearGradient id="g2" x1="140" y1="120" x2="600" y2="620" gradientUnits="userSpaceOnUse">
+<stop stop-color="#e0e036" stop-opacity="0.7"/>
+<stop offset="1" stop-color="#2d21ed" stop-opacity="0.4"/>
+</linearGradient>
+<filter id="blur" x="-80" y="-80" width="1040" height="880" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feGaussianBlur stdDeviation="70" result="blur"/>
+</filter>
+<filter id="drop" x="-40" y="-40" width="960" height="800" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feOffset dy="12" dx="0"/>
+<feGaussianBlur stdDeviation="24"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.11 0 0 0 0 0.06 0 0 0 0 0.4 0 0 0 0.25 0"/>
+<feBlend in2="SourceGraphic" mode="normal"/>
+</filter>
+</defs>
+<g filter="url(#blur)" opacity="0.6">
+<ellipse cx="360" cy="260" rx="210" ry="170" fill="#36e08b"/>
+<ellipse cx="560" cy="440" rx="240" ry="190" fill="#e0368b"/>
+<ellipse cx="500" cy="260" rx="180" ry="160" fill="#2d21ed"/>
+</g>
+<g filter="url(#drop)">
+<path d="M336 138C258 178 210 270 220 352C231 445 310 518 400 560C487 600 586 593 654 540C714 493 748 413 734 338C722 274 676 224 621 177C548 114 442 89 336 138Z" fill="url(#g1)"/>
+<path d="M349 195C299 220 265 275 272 330C280 396 339 455 413 487C484 518 567 513 621 472C669 435 694 374 684 319C676 272 641 234 600 199C544 151 452 141 349 195Z" fill="url(#g2)" opacity="0.72"/>
+<circle cx="520" cy="260" r="86" fill="white" fill-opacity="0.06" stroke="#36e08b" stroke-width="2"/>
+<circle cx="446" cy="332" r="62" fill="white" fill-opacity="0.08" stroke="#e0e036" stroke-width="2"/>
+</g>
+<g>
+<path d="M460 170C420 170 385 205 385 245V320H350V360H385V400H430V360H472V320H430V255C430 238 442 225 460 225C478 225 490 238 490 255V320H535V248C535 205 500 170 460 170Z" fill="white" fill-opacity="0.9"/>
+<circle cx="350" cy="360" r="10" fill="#36e08b"/>
+<circle cx="430" cy="360" r="10" fill="#e0e036"/>
+<circle cx="472" cy="320" r="10" fill="#36e08b"/>
+<circle cx="535" cy="248" r="10" fill="#e0368b"/>
+</g>
+<g opacity="0.5">
+<circle cx="240" cy="160" r="8" fill="#36e08b"/>
+<circle cx="640" cy="520" r="10" fill="#e0e036"/>
+<circle cx="620" cy="220" r="6" fill="#e0368b"/>
+<circle cx="300" cy="520" r="7" fill="#36e08b"/>
+</g>
+</svg>
+
+
