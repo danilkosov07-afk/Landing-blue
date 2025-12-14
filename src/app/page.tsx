@@ -645,6 +645,7 @@ export default function Home() {
   const prefersReducedMotion = useReducedMotion();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const STORAGE_KEY = "landing-two-content-v1";
   const ADMIN_KEY = "landing-two-admin-v1";
   const loadedRef = useRef(false);
@@ -661,36 +662,48 @@ export default function Home() {
     }
     return siteData;
   });
-  void setContent;
-  const [adminState, setAdminState] = useState<AdminState>(() => ({
-    preview: "desktop",
-    animationsEnabled: true,
-    animationType: "fade",
-    sections: [
-      { id: "hero", label: "Hero", enabled: true },
-      { id: "features", label: "Преимущества", enabled: true },
-      { id: "services", label: "Функционал", enabled: true },
-      { id: "gallery", label: "Галерея", enabled: true },
-      { id: "contact", label: "Контакты", enabled: true },
-    ],
-    formFields: {
-      name: { enabled: true, label: "Имя" },
-      email: { enabled: true, label: "Email" },
-      phone: { enabled: false, label: "Телефон" },
-      message: { enabled: true, label: "Сообщение" },
-    },
-    recipients: { email: "hello@example.com", crm: "https://crm.local/webhook" },
-    submissions: [],
-    lockUntil: 0,
-    failedCount: 0,
-    history: [],
-    future: [],
-    role: null,
-    authenticated: false,
-  }));
+  const [adminState, setAdminState] = useState<AdminState>(() => {
+    const defaultState: AdminState = {
+      preview: "desktop",
+      animationsEnabled: true,
+      animationType: "fade",
+      sections: [
+        { id: "hero", label: "Hero", enabled: true },
+        { id: "features", label: "Преимущества", enabled: true },
+        { id: "services", label: "Функционал", enabled: true },
+        { id: "gallery", label: "Галерея", enabled: true },
+        { id: "contact", label: "Контакты", enabled: true },
+      ],
+      formFields: {
+        name: { enabled: true, label: "Имя" },
+        email: { enabled: true, label: "Email" },
+        phone: { enabled: false, label: "Телефон" },
+        message: { enabled: true, label: "Сообщение" },
+      },
+      recipients: { email: "hello@example.com", crm: "https://crm.local/webhook" },
+      submissions: [],
+      lockUntil: 0,
+      failedCount: 0,
+      history: [],
+      future: [],
+      role: null,
+      authenticated: false,
+    };
+    if (typeof window !== "undefined") {
+      const raw = localStorage.getItem(ADMIN_KEY);
+      if (raw) {
+        try {
+          const parsed = JSON.parse(raw) as Partial<AdminState>;
+          return { ...defaultState, ...parsed, history: [], future: [] };
+        } catch {
+          /* ignore */
+        }
+      }
+    }
+    return defaultState;
+  });
   const [filter, setFilter] = useState(content.gallery.categories[0]);
   const [viewport, setViewport] = useState({ w: 1280, h: 720 });
-  const pathname = usePathname();
 
   useEffect(() => {
     loadedRef.current = true;
@@ -704,24 +717,6 @@ export default function Home() {
       console.warn("Failed to save content", e);
     }
   }, [content]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const raw = localStorage.getItem(ADMIN_KEY);
-    if (raw) {
-      try {
-        const parsed = JSON.parse(raw) as Partial<AdminState>;
-        setAdminState((s) => ({
-          ...s,
-          ...parsed,
-          history: [],
-          future: [],
-        }));
-      } catch {
-        /* ignore */
-      }
-    }
-  }, []);
 
   useEffect(() => {
     if (!loadedRef.current) return;
@@ -791,7 +786,6 @@ export default function Home() {
     [filter, galleryItems],
   );
 
-  const searchParams = useSearchParams();
   const showAdmin =
     pathname?.includes("/admin") ||
     searchParams.get("admin") === "1" ||
@@ -834,8 +828,13 @@ export default function Home() {
     });
   };
 
-  const adminLocked =
-    adminState.lockUntil > 0 && typeof window !== "undefined" && Date.now() < adminState.lockUntil;
+  const [now, setNow] = useState(() => (typeof window !== "undefined" ? Date.now() : 0));
+  useEffect(() => {
+    if (typeof window === "undefined" || adminState.lockUntil <= 0) return;
+    const interval = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(interval);
+  }, [adminState.lockUntil]);
+  const adminLocked = adminState.lockUntil > 0 && now < adminState.lockUntil;
 
   const letterAnimation = {
     hidden: { y: 40, opacity: 0 },
